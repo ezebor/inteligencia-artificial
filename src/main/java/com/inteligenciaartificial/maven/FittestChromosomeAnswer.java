@@ -228,4 +228,12 @@ public class FittestChromosomeAnswer {
     private BigDecimal getDoubleGene(IChromosome fittestChromosome, Integer index){
         return roundToTwoDecimals((Double) fittestChromosome.getGene(index).getAllele());
     }
+
+    public Double getPriceTimesQuantity(BigDecimal price, BigDecimal quantity){
+        return roundToTwoDecimals(price.multiply(quantity));
+    }
+
+    public Double roundToTwoDecimals(BigDecimal val){
+        return val.setScale(2, BigDecimal.ROUND_HALF_DOWN).doubleValue();
+    }
 }

@@ -5,6 +5,9 @@ import org.jgap.impl.DefaultConfiguration;
 import org.jgap.impl.DoubleGene;
 import org.jgap.impl.IntegerGene;
 
+import java.io.File;
+import java.io.PrintWriter;
+
 public class MaximumDiscountCalculator {
 
     private static final int MAX_ID_OF_PROMOTION = 4;
@@ -34,11 +37,14 @@ public class MaximumDiscountCalculator {
         configuration.setPopulationSize(populationSize);
         Genotype population = Genotype.randomInitialGenotype(configuration);
         int i;
+        PrintWriter writer = new PrintWriter(new File("MejoresIndividuos.csv"));
+        CSVPopulationManager.writeHeaders(writer);
         for(i = 1; i <= maxTimesOfEvolves; i++){
             System.out.println("Número de evolución: " + i + " de " + maxTimesOfEvolves);
             population.evolve();
+            CSVPopulationManager.saveBestChromosomeIntoCSV(i, population, writer);
         }
-        PopulationManagerXML.saveXMLPopulationEvolution(population);
+        writer.close();
 
         return new FittestChromosomeAnswer(population.getFittestChromosome());
     }
