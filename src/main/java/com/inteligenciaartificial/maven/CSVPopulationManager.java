@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 
 public class CSVPopulationManager {
 
+    public static final String CSV_FILE_NAME = "MejoresIndividuos.csv";
+
     public static void writeHeaders(PrintWriter writer){
         StringBuilder sb = new StringBuilder();
         sb.append("Número de evolución");

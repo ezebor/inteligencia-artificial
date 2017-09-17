@@ -1,9 +1,11 @@
 package com.inteligenciaartificial.maven;
 
+import org.jfree.ui.RefineryUtilities;
+
 import java.math.BigDecimal;
 
 public class App {
-    public static final int MAX_TIMES_OF_EVOLVES = 23;
+    private static final int MAX_TIMES_OF_EVOLVES = 23;
     private static final int MAX_ID_OF_PRODUCT = 1000;
     private static final double MAX_PRICE = 1500;
     private static final int MAX_QUANTITY_OF_PRODUCT = 5;
@@ -33,6 +35,12 @@ public class App {
             System.out.println("\nSubtotal: $" + subtotal + "\n");
             System.out.println("Total descuento: $" + totalDiscount + " (promos " + answer.getPromo1() + " y " + answer.getPromo2() + ")\n");
             System.out.println("Total: $" + total);
+
+            final Plotter demo = new Plotter("Mejor individuo en cada evolución");
+            demo.pack();
+            RefineryUtilities.centerFrameOnScreen(demo);
+            demo.setVisible(true);
+
         }catch (Exception e){
             System.out.println("An error occurred: " + e.getMessage());
         }

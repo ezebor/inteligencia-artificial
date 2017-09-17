@@ -37,7 +37,7 @@ public class MaximumDiscountCalculator {
         configuration.setPopulationSize(populationSize);
         Genotype population = Genotype.randomInitialGenotype(configuration);
         int i;
-        PrintWriter writer = new PrintWriter(new File("MejoresIndividuos.csv"));
+        PrintWriter writer = new PrintWriter(new File(CSVPopulationManager.CSV_FILE_NAME));
         CSVPopulationManager.writeHeaders(writer);
         for(i = 1; i <= maxTimesOfEvolves; i++){
             System.out.println("Número de evolución: " + i + " de " + maxTimesOfEvolves);

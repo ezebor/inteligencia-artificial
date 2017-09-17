@@ -1,3 +1,4 @@
 .idea/
 MejoresIndividuos.csv
-/target/**
+.~lock.MejoresIndividuos.csv#
+target/

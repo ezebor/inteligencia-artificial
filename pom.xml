@@ -13,6 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <guava.version>21.0</guava.version>
+    <jfreechart.version>1.0.13</jfreechart.version>
   </properties>
 
   <dependencies>
@@ -27,6 +28,11 @@
       <artifactId>guava</artifactId>
       <version>${guava.version}</version><!--$NO-MVN-MAN-VER$ -->
       <!-- Ignore Warning in Eclipse (BE ALERT: Overriding managed version by Spring) -->
+    </dependency>
+    <dependency>
+      <groupId>jfree</groupId>
+      <artifactId>jfreechart</artifactId>
+      <version>${jfreechart.version}</version>
     </dependency>
   </dependencies>
 </project>
