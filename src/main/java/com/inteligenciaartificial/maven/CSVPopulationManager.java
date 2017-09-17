@@ -1,14 +1,8 @@
 package com.inteligenciaartificial.maven;
 
 import org.jgap.Genotype;
-import org.jgap.data.DataTreeBuilder;
-import org.jgap.data.IDataCreators;
-import org.jgap.xml.XMLDocumentBuilder;
-import org.jgap.xml.XMLManager;
-import org.w3c.dom.Document;
 
-import java.io.*;
-import java.math.BigDecimal;
+import java.io.PrintWriter;
 
 public class CSVPopulationManager {
 
