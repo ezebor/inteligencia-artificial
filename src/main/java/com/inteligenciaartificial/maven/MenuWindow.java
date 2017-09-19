@@ -44,56 +44,20 @@ public class MenuWindow extends JFrame implements ActionListener {
 
     private void initializeComponents() {
         // Labels
-        populationSizeTag = new JLabel();
-        timesToEvolveTag = new JLabel();
-        maxIdOfProductTag = new JLabel();
-        maxPriceTag = new JLabel();
-        maxQuantityPerProductTag = new JLabel();
-        summary = new JTextArea(15, 4);
-
-        populationSizeTag.setText("Ingrese tamaño de la población (compras posibles)");
-        populationSizeTag.setBounds(50, 20, 400, 25);
-        this.add(populationSizeTag);
-
-        timesToEvolveTag.setText("Ingrese el número de evoluciones (generaciones)");
-        timesToEvolveTag.setBounds(50, 50, 400, 25);
-        this.add(timesToEvolveTag);
-
-        maxPriceTag.setText("Ingrese el máximo precio de un producto");
-        maxPriceTag.setBounds(50, 80, 400, 25);
-        this.add(maxPriceTag);
-
-        maxQuantityPerProductTag.setText("Ingrese la máxima cantidad de items por producto");
-        maxQuantityPerProductTag.setBounds(50, 110, 400, 25);
-        this.add(maxQuantityPerProductTag);
-
-        maxIdOfProductTag.setText("Ingrese la máxima cantidad de productos distintos");
-        maxIdOfProductTag.setBounds(50, 140, 400, 25);
-        this.add(maxIdOfProductTag);
+        populationSizeTag = this.initializeLabel("Ingrese tamaño de la población (compras posibles)", 50, 20, 400, 25);
+        timesToEvolveTag = this.initializeLabel("Ingrese el número de evoluciones (generaciones)", 50, 50, 400, 25);
+        maxPriceTag = this.initializeLabel("Ingrese el máximo precio de un producto", 50, 80, 400, 25);
+        maxQuantityPerProductTag = this.initializeLabel("Ingrese la máxima cantidad de items por producto", 50, 110, 400, 25);
+        maxIdOfProductTag = this.initializeLabel("Ingrese la máxima cantidad de productos distintos", 50, 140, 400, 25);
 
         // Texts
-        populationSizeText = new JTextField("20000");
-        timesToEvolveText = new JTextField("23");
-        maxIdOfProductText = new JTextField("1000");
-        maxPriceText = new JTextField("1500");
-        maxQuantityPerProductText = new JTextField("5");
+        populationSizeText = this.initializeText("20000", 500, 20, 100, 25);
+        timesToEvolveText = this.initializeText("23", 500, 50, 100, 25);
+        maxPriceText = this.initializeText("1500", 500, 80, 100, 25);
+        maxQuantityPerProductText = this.initializeText("5", 500, 110, 100, 25);
+        maxIdOfProductText = this.initializeText("1000", 500, 140, 100, 25);
 
-        populationSizeText.setBounds(500, 20, 100, 25);
-        this.add(populationSizeText);
-
-        timesToEvolveText.setBounds(500, 50, 100, 25);
-        this.add(timesToEvolveText);
-
-
-        maxPriceText.setBounds(500, 80, 100, 25);
-        this.add(maxPriceText);
-
-        maxQuantityPerProductText.setBounds(500, 110, 100, 25);
-        this.add(maxQuantityPerProductText);
-
-        maxIdOfProductText.setBounds(500, 140, 100, 25);
-        this.add(maxIdOfProductText);
-
+        summary = new JTextArea(15, 4);
         summary.setBounds(50, 240, 550, 300);
         summary.setEditable(false);
         summary.setLineWrap(true);
@@ -106,6 +70,20 @@ public class MenuWindow extends JFrame implements ActionListener {
         getFittestChromosomeButton.setBounds(50, 190, 550, 30);
         getFittestChromosomeButton.addActionListener(this);
         this.add(getFittestChromosomeButton);
+    }
+
+    private JLabel initializeLabel(String content, int x, int y, int width, int height){
+        JLabel label = new JLabel(content);
+        label.setBounds(x, y, width, height);
+        this.add(label);
+        return label;
+    }
+
+    private JTextField initializeText(String content, int x, int y, int width, int height){
+        JTextField text = new JTextField(content);
+        text.setBounds(x, y, width, height);
+        this.add(text);
+        return text;
     }
 
     public void actionPerformed(ActionEvent e) {
