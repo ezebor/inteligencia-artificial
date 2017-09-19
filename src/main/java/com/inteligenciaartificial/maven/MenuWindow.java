@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Menu extends JFrame implements ActionListener {
+public class MenuWindow extends JFrame implements ActionListener {
 
     private JLabel timesToEvolveTag;
     private JTextField timesToEvolveText;
@@ -25,14 +25,14 @@ public class Menu extends JFrame implements ActionListener {
 
     private Plotter plotter = null;
 
-    public Menu() {
+    public MenuWindow() {
         super();                    // usamos el contructor de la clase padre JFrame
-        configurarVentana();        // configuramos la ventana
-        inicializarComponentes();   // inicializamos los atributos o componentes
+        setWindow();                // configuramos la ventana
+        initializeComponents();     // inicializamos los atributos o componentes
         setVisible(true);
     }
 
-    private void configurarVentana() {
+    private void setWindow() {
         this.setTitle("Inteligencia Artificial - Algoritmo genético - grupo 7");                   // colocamos titulo a la ventana
         this.setSize(650, 550);                                 // colocamos tamanio a la ventana (ancho, alto)
         this.setLocationRelativeTo(null);                       // centramos la ventana en la pantalla
@@ -41,7 +41,7 @@ public class Menu extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    // hacemos que cuando se cierre la ventana termina todo proceso
     }
 
-    private void inicializarComponentes() {
+    private void initializeComponents() {
         // Labels
         populationSizeTag = new JLabel();
         timesToEvolveTag = new JLabel();
@@ -123,7 +123,5 @@ public class Menu extends JFrame implements ActionListener {
         plotter = new Plotter("Mejor individuo en cada evolución");
         plotter.pack();
         RefineryUtilities.centerFrameOnScreen(plotter);
-        //plotter.setVisible(true);
-        plotter.setDefaultCloseOperation(Plotter.DISPOSE_ON_CLOSE);
     }
 }
