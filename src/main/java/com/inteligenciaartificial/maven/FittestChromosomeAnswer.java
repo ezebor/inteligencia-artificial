@@ -201,7 +201,7 @@ public class FittestChromosomeAnswer {
         String promotionName;
         switch (promotion){
             case 0:
-                promotionName = "Promo vacía";
+                promotionName = "sin promo";
                 break;
             case 1:
                 promotionName = "2x1";
