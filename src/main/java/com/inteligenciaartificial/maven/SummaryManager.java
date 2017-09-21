@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 
 public class SummaryManager {
 
-    public static String getSummary(int maxTimesOfEvolves, int populationSize, int maxQuantityOfProduct, double maxPrice, int maxIdOfProduct){
+    public static String getSummary(int maxTimesOfEvolves, int populationSize, int maxQuantityOfProduct, double maxPrice, int maxIdOfProduct, String naturalSelectorItem){
         try{
             String summary;
             FittestChromosomeAnswer answer = new MaximumDiscountCalculator().calculateMaximumDiscount(maxTimesOfEvolves,
-                    populationSize, maxQuantityOfProduct, maxPrice, maxIdOfProduct);
+                    populationSize, maxQuantityOfProduct, maxPrice, maxIdOfProduct, naturalSelectorItem);
             summary = "El cromosoma elegido fue:\n";
 
             Double totalPrice1 = answer.getPriceTimesQuantity(answer.getPrice1(), answer.getQuantity1());

@@ -1,9 +1,7 @@
 package com.inteligenciaartificial.maven;
 
 import org.jgap.*;
-import org.jgap.impl.DefaultConfiguration;
-import org.jgap.impl.DoubleGene;
-import org.jgap.impl.IntegerGene;
+import org.jgap.impl.*;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -12,7 +10,9 @@ public class MaximumDiscountCalculator {
 
     private static final int MAX_ID_OF_PROMOTION = 4;
 
-    public FittestChromosomeAnswer calculateMaximumDiscount(int maxTimesOfEvolves, int populationSize, int maxQuantityOfProduct, double maxPrice, int maxIdOfProduct) throws Exception{
+    public FittestChromosomeAnswer calculateMaximumDiscount(int maxTimesOfEvolves, int populationSize,
+                                                            int maxQuantityOfProduct, double maxPrice,
+                                                            int maxIdOfProduct, String naturalSelectorItem) throws Exception{
 
         Configuration configuration = new DefaultConfiguration();
         configuration.setPreservFittestIndividual(true);
@@ -34,6 +34,13 @@ public class MaximumDiscountCalculator {
         IChromosome chromosome = new Chromosome(configuration, genes);
         configuration.setSampleChromosome(chromosome);
 
+        if(naturalSelectorItem.equals("Ruleta")){
+            configuration.addNaturalSelector(new WeightedRouletteSelector(configuration), true);
+        }else{
+            configuration.addNaturalSelector(new TournamentSelector(configuration, 5, 0.3), false);
+        }
+
+        configuration.addGeneticOperator(new MutationOperator(configuration, 15));
         configuration.setPopulationSize(populationSize);
         Genotype population = Genotype.randomInitialGenotype(configuration);
         int i;
